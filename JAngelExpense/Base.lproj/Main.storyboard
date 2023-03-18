@@ -199,7 +199,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dsS-ja-gxK">
-                                <rect key="frame" x="169" y="-92" width="308" height="274"/>
+                                <rect key="frame" x="169" y="-100" width="308" height="274"/>
                                 <color key="tintColor" white="1" alpha="0.23841059602649006" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="308" id="Raf-GZ-Hk9"/>
@@ -207,13 +207,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tg-OD-vU6">
-                                <rect key="frame" x="19" y="46" width="159" height="45"/>
+                                <rect key="frame" x="19" y="46" width="159" height="37"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-7d-glT">
-                                <rect key="frame" x="20" y="110" width="353" height="40"/>
+                                <rect key="frame" x="20" y="102" width="360" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foE-sC-bEp">
                                         <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="40"/>
@@ -226,11 +226,18 @@
                                             <action selector="SearchAction:" destination="Lxh-zF-0uV" eventType="touchUpInside" id="0k4-Pt-QWi"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Categories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YnD-qn-X8k">
-                                        <rect key="frame" x="49.666666666666657" y="0.0" width="303.33333333333337" height="40"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Categories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YnD-qn-X8k">
+                                        <rect key="frame" x="49.666666666666657" y="0.0" width="280.33333333333337" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f91-bw-kwd">
+                                        <rect key="frame" x="330" y="0.0" width="30" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="LBY-Q9-KXm"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -238,7 +245,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CYm-pL-VHO">
-                                <rect key="frame" x="0.0" y="173" width="393" height="596"/>
+                                <rect key="frame" x="0.0" y="165" width="400" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -290,6 +297,9 @@
                     <connections>
                         <outlet property="CategoriasTaableView" destination="CYm-pL-VHO" id="bjE-3g-71J"/>
                         <outlet property="Searchtext" destination="YnD-qn-X8k" id="8hK-SR-Pfv"/>
+                        <outlet property="searchbutton" destination="foE-sC-bEp" id="bwz-3B-slZ"/>
+                        <outlet property="stacksearch" destination="E1P-7d-glT" id="1mo-Lo-AgD"/>
+                        <outlet property="viewadorn" destination="f91-bw-kwd" id="Jtz-ad-iuQ"/>
                         <segue destination="EcO-43-yxE" kind="show" id="lry-xC-48d"/>
                     </connections>
                 </viewController>

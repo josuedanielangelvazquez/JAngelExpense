@@ -56,7 +56,7 @@ class ViewController: UIViewController {
                 Categoria.selectedRowColor = .systemIndigo
                 Categoria.arrowSize = 10
                 Categoria.arrowColor = .systemIndigo
-                self.Categoria.text = String(id)
+                self.Categoria.text = String(selectedText)
                 self.idCategory = id
                 
                 

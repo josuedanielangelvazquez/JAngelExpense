@@ -8,6 +8,9 @@
 import UIKit
 import SQLite3
 class CategoriasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var stacksearch: UIStackView!
+    
     var busquedanormal = true
     var CategoriaArray = [categorias]()
     var subcategoriasarray = [SubCategorias]()
@@ -18,10 +21,21 @@ class CategoriasViewController: UIViewController, UITableViewDelegate, UITableVi
     let Ok = UIAlertAction(title: "Ok", style: .default)
     var numer = 1
     @IBOutlet weak var CategoriasTaableView: UITableView!
-    
     @IBOutlet weak var Searchtext: UITextField!
+    @IBOutlet weak var searchbutton: UIButton!
+    
+    @IBOutlet weak var viewadorn: UIView!
+    
     
     override func viewDidLoad() {
+        viewadorn.layer.cornerRadius = 20
+        stacksearch.layer.cornerRadius = 20
+        stacksearch.layer.borderColor = nil
+        stacksearch.layer.borderWidth = 0
+        Searchtext.layer.cornerRadius = 30
+        searchbutton.layer.cornerRadius = 20
+        
+    
         super.viewDidLoad()
         alert.addAction(Ok)
         alertfalse.addAction(Ok)

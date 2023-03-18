@@ -52,7 +52,7 @@ class AddCategoryViewController: UIViewController {
                 Categorytosubcategory.arrowSize = 10
                 Categorytosubcategory.arrowColor = .systemIndigo
                 
-                self.Categorytosubcategory.text = String(id)
+                self.Categorytosubcategory.text = String(selectedText)
                 self.idCategory = id
                 
                 
