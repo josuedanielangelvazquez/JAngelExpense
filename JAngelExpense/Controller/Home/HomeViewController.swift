@@ -73,13 +73,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         TableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10 // Espacio que deseas tener.
-    }
+   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+      return 100
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
         return expenses.count
     }
     
@@ -87,9 +86,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "Homecell", for: indexPath as IndexPath) as! HomeTableViewCell
         
 
-        cell.layer.cornerRadius = 20
-        cell.StackView.layer.cornerRadius = 20
-        cell.costo.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 15
+        cell.StackView.layer.cornerRadius = 15
+        cell.costo.layer.cornerRadius = 15
+        cell.StackView.layer.shadowColor = UIColor.black.cgColor
+        cell.StackView.layer.shadowOpacity = 0.4
+        cell.StackView.layer.shadowOffset = .zero
+        cell.StackView.layer.shadowRadius = 0.4
         cell.Fechalbl.text = expenses[indexPath.row].fecha
         print(expenses[indexPath.row].fecha)
         cell.namelbl.text = expenses[indexPath.row].Name

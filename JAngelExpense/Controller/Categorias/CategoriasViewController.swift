@@ -8,12 +8,15 @@
 import UIKit
 import SQLite3
 class CategoriasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var subcategoriaarray2 = [SubCategorias]()
+    var busquedanormal = true
+    var CategoriaArray = [categorias]()
     var subcategoriasarray = [SubCategorias]()
     let categoriasviewmodel = CategoriasViewModel()
+    var seccion = 0
     let alert = UIAlertController(title: nil, message: "Se agrego correctamente", preferredStyle: .alert)
     let alertfalse = UIAlertController(title: nil, message: "Ocurrio un Error", preferredStyle: .alert)
     let Ok = UIAlertAction(title: "Ok", style: .default)
+    var numer = 1
     @IBOutlet weak var CategoriasTaableView: UITableView!
     
     @IBOutlet weak var Searchtext: UITextField!
@@ -30,15 +33,16 @@ class CategoriasViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        subcategoriasarray.count
-loadData()
+
+        loadData()
     }
+    
     func loadData(){
-        
-        let result = categoriasviewmodel.getallSubcategorias()
+        let  result = categoriasviewmodel.getall()
         if result.Correct == true{
             
-            subcategoriasarray = result.Objects as! [SubCategorias]
+            CategoriaArray = result.Objects as! [categorias]
+            print(CategoriaArray)
             CategoriasTaableView.reloadData()
             
         }
@@ -47,17 +51,57 @@ loadData()
             self.present(alertfalse, animated: true)
             print(result.ErrorMessage)
         }
+        
+        
     }
+    
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if busquedanormal == true{
+
+            return CategoriaArray.count
+        }
+        else{
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if busquedanormal == true{
+            var name = CategoriaArray[section].NameCategorias
+            seccion = section
+
+            return name}
+        else{
+            return nil
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subcategoriasarray.count
+        if busquedanormal == true{
+            return CategoriaArray[section].subcategorias!.count}
+        else{
+            return subcategoriasarray.count
+        }
+       
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subcategoriascell", for: indexPath as IndexPath) as! SubcategoriasTableViewCell
-        cell.NameSubcategorie.text = subcategoriasarray[indexPath.row].nameSubCategoria
+        if busquedanormal == true{
+            cell.NameSubcategorie.text = CategoriaArray[indexPath.section].subcategorias![indexPath.row].nameSubCategoria
+        }
+        else{
+            cell.NameSubcategorie.text = subcategoriasarray[indexPath.row].nameSubCategoria
+
+        }
+        
         return cell
     }
     func searchbynombre(){
+        busquedanormal = false
         subcategoriasarray = [SubCategorias]()
         let result =  categoriasviewmodel.getbyNombre(nombrecategoria: Searchtext.text!)
         if result.Correct == true{
@@ -68,28 +112,8 @@ loadData()
             self.present(alertfalse, animated: true)
         }
     }
-    func addCategory(){
-        
-    }
-    func addSubCategory(){}
     
 
-    @IBAction func AddCategoriasAction(_ sender: Any) {
-        
-        let alert = UIAlertController(title: nil, message: "Selectd a option", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Add a Category", style: .default){ action in
-            self.addCategory()
-        })
-        alert.addAction(UIAlertAction(title: "Add a Subcategory", style: .default){
-            action in
-            self.addSubCategory()
-        })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        cancel.setValue(UIColor.systemRed, forKey: "titleTextColor")
-        alert.addAction(cancel)
-        self.present(alert, animated: true)
-    }
-    
     @IBAction func SearchAction(_ sender: Any) {
         searchbynombre()
     }

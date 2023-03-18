@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79F9BF506FA1A5B285C4DE6B /* Pods_JAngelExpense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4D6066A710FA01812E8EF1 /* Pods_JAngelExpense.framework */; };
 		FB1CE62729C25721006CED68 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CE62629C25721006CED68 /* PerfilViewController.swift */; };
 		FB1CE62929C26E24006CED68 /* CategoriasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CE62829C26E24006CED68 /* CategoriasViewController.swift */; };
 		FB1CE62D29C26EC9006CED68 /* Categorias.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CE62C29C26EC9006CED68 /* Categorias.swift */; };
@@ -23,12 +24,16 @@
 		FB57C15229BFFE8A002F2A2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB57C15129BFFE8A002F2A2D /* Assets.xcassets */; };
 		FB57C15529BFFE8A002F2A2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB57C15329BFFE8A002F2A2D /* LaunchScreen.storyboard */; };
 		FB57C16129BFFF05002F2A2D /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB57C16029BFFF05002F2A2D /* DB.swift */; };
+		FB5EBA7329C5029D005A3C34 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBA7229C5029D005A3C34 /* AddCategoryViewController.swift */; };
 		FB97488529C0FD5C004A33B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97488429C0FD5C004A33B0 /* HomeViewController.swift */; };
 		FB97488B29C0FE4D004A33B0 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97488929C0FE4D004A33B0 /* HomeTableViewCell.swift */; };
 		FB97488C29C0FE4D004A33B0 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB97488A29C0FE4D004A33B0 /* HomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7314C2E58AE1487570923E64 /* Pods-JAngelExpense.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAngelExpense.debug.xcconfig"; path = "Target Support Files/Pods-JAngelExpense/Pods-JAngelExpense.debug.xcconfig"; sourceTree = "<group>"; };
+		AF4D6066A710FA01812E8EF1 /* Pods_JAngelExpense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JAngelExpense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD71DC2DC6F7BCABA8F801CA /* Pods-JAngelExpense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAngelExpense.release.xcconfig"; path = "Target Support Files/Pods-JAngelExpense/Pods-JAngelExpense.release.xcconfig"; sourceTree = "<group>"; };
 		FB1CE62629C25721006CED68 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		FB1CE62829C26E24006CED68 /* CategoriasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriasViewController.swift; sourceTree = "<group>"; };
 		FB1CE62C29C26EC9006CED68 /* Categorias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorias.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		FB57C15429BFFE8A002F2A2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB57C15629BFFE8B002F2A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB57C16029BFFF05002F2A2D /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		FB5EBA7229C5029D005A3C34 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		FB97488429C0FD5C004A33B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FB97488929C0FE4D004A33B0 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FB97488A29C0FE4D004A33B0 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -57,12 +63,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F9BF506FA1A5B285C4DE6B /* Pods_JAngelExpense.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0696E02849CA8D5B9564F808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF4D6066A710FA01812E8EF1 /* Pods_JAngelExpense.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5821F9857458E5F079788638 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7314C2E58AE1487570923E64 /* Pods-JAngelExpense.debug.xcconfig */,
+				DD71DC2DC6F7BCABA8F801CA /* Pods-JAngelExpense.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB1CE63029C274FC006CED68 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,7 @@
 			children = (
 				FB1CE62829C26E24006CED68 /* CategoriasViewController.swift */,
 				FB1CE63D29C2798B006CED68 /* SubcategoriasTableViewCell.swift */,
+				FB5EBA7229C5029D005A3C34 /* AddCategoryViewController.swift */,
 			);
 			path = Categorias;
 			sourceTree = "<group>";
@@ -94,6 +120,8 @@
 			children = (
 				FB57C14729BFFE89002F2A2D /* JAngelExpense */,
 				FB57C14629BFFE89002F2A2D /* Products */,
+				5821F9857458E5F079788638 /* Pods */,
+				0696E02849CA8D5B9564F808 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB57C15929BFFE8B002F2A2D /* Build configuration list for PBXNativeTarget "JAngelExpense" */;
 			buildPhases = (
+				DE54F65B138196175CA5ACD0 /* [CP] Check Pods Manifest.lock */,
 				FB57C14129BFFE89002F2A2D /* Sources */,
 				FB57C14229BFFE89002F2A2D /* Frameworks */,
 				FB57C14329BFFE89002F2A2D /* Resources */,
+				553382C4C101A199C8D1B4C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +268,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		553382C4C101A199C8D1B4C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JAngelExpense/Pods-JAngelExpense-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JAngelExpense/Pods-JAngelExpense-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JAngelExpense/Pods-JAngelExpense-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE54F65B138196175CA5ACD0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JAngelExpense-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB57C14129BFFE89002F2A2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -254,6 +326,7 @@
 				FB1CE62729C25721006CED68 /* PerfilViewController.swift in Sources */,
 				FB2C99DD29C11371003373EA /* ExpensesViewModel.swift in Sources */,
 				FB57C14929BFFE89002F2A2D /* AppDelegate.swift in Sources */,
+				FB5EBA7329C5029D005A3C34 /* AddCategoryViewController.swift in Sources */,
 				FB2C99E129C1145C003373EA /* Expenses.swift in Sources */,
 				FB2C99DF29C11427003373EA /* Result.swift in Sources */,
 				FB57C14B29BFFE89002F2A2D /* SceneDelegate.swift in Sources */,
@@ -398,6 +471,7 @@
 		};
 		FB57C15A29BFFE8B002F2A2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7314C2E58AE1487570923E64 /* Pods-JAngelExpense.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -425,6 +499,7 @@
 		};
 		FB57C15B29BFFE8B002F2A2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD71DC2DC6F7BCABA8F801CA /* Pods-JAngelExpense.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

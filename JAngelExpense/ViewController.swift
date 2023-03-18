@@ -6,18 +6,22 @@
 //
 
 import UIKit
-
+import iOSDropDown
 class ViewController: UIViewController {
     let modelExpenses : Expenses? = nil
     let expensesviewmodel = ExpensesViewModel()
+    let categoriasviewmodel = CategoriasViewModel()
     var db = DB()
-    
+    var idCategory = 0
     @IBOutlet weak var Balance: UILabel!
     
     @IBOutlet weak var SelectTipedidselect: UISegmentedControl!
     @IBOutlet weak var Amounttext: UITextField!
     @IBOutlet weak var IncomeorExpensetext: UITextField!
-    @IBOutlet weak var Categorie: UITextField!
+    
+    
+    @IBOutlet weak var Categoria: DropDown!
+    
     @IBOutlet weak var subcategorie: UITextField!
     @IBOutlet weak var Datedate: UIDatePicker!
     @IBOutlet weak var Tiposegment: UISegmentedControl!
@@ -29,6 +33,7 @@ class ViewController: UIViewController {
         db.OpenConexion()
         Tiposegment.selectedSegmentIndex = 0
         getbalance()
+        loadCategory()
 
     }
     func getbalance(){
@@ -37,6 +42,28 @@ class ViewController: UIViewController {
         Balance.text = "$\(currentbalance)"
 
     }
+    
+    func loadCategory(){
+        Categoria.optionIds = []
+        Categoria.optionArray = []
+        let result = categoriasviewmodel.getall()
+        if result.Correct == true{
+            for categories in result.Objects! as! [categorias]{
+                Categoria.optionIds?.append(categories.IdCategorias)
+                Categoria.optionArray.append(categories.NameCategorias)
+            }
+            Categoria.didSelect{ [self](selectedText , index ,id) in
+                Categoria.selectedRowColor = .systemIndigo
+                Categoria.arrowSize = 10
+                Categoria.arrowColor = .systemIndigo
+                self.Categoria.text = String(id)
+                self.idCategory = id
+                
+                
+            }
+            
+        }}
+
                               
     func addExpenses(){
         var result = Result()

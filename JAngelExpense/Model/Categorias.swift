@@ -9,10 +9,12 @@ import Foundation
 struct SubCategorias{
     var IdSubcategorias : Int
     var nameSubCategoria : String
-    var idCategorias : categorias
+    var idCategoria : Int
+    
 }
 struct categorias{
     var IdCategorias : Int
     var NameCategorias : String
+    var subcategorias : [SubCategorias]?
 }
 
