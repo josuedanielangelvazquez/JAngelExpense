@@ -10,7 +10,8 @@ import SQLite3
 class CategoriasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var stacksearch: UIStackView!
-    
+    var idSubcategoria = 0
+    var nameSubcategory = ""
     var busquedanormal = true
     var CategoriaArray = [categorias]()
     var subcategoriasarray = [SubCategorias]()
@@ -124,6 +125,26 @@ class CategoriasViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else{
             self.present(alertfalse, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if busquedanormal == true{
+            nameSubcategory = CategoriaArray[indexPath.section].subcategorias![indexPath.row].nameSubCategoria
+            idSubcategoria = CategoriaArray[indexPath.section].subcategorias![indexPath.row].IdSubcategorias
+        }
+        else{
+            nameSubcategory = subcategoriasarray[indexPath.row].nameSubCategoria
+            idSubcategoria = subcategoriasarray[indexPath.row].IdSubcategorias
+        }
+        performSegue(withIdentifier: "seguesmovements", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seguesmovements"{
+            let detail = segue.destination as! movementsbycategoryViewController
+            detail.subcategorianame = nameSubcategory
+            detail.idSubcategory = idSubcategoria
         }
     }
     

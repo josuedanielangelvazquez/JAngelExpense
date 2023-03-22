@@ -34,7 +34,7 @@
                                                     <constraint firstAttribute="width" constant="62" id="6C3-Z8-MHV"/>
                                                     <constraint firstAttribute="height" constant="66" id="lqN-ul-gBm"/>
                                                 </constraints>
-                                                <imageReference key="image" image="airplane.circle.fill" catalog="system" renderingMode="hierarchical-single">
+                                                <imageReference key="image" image="dollarsign.circle.fill" catalog="system" renderingMode="hierarchical-single">
                                                     <hierarchicalColors>
                                                         <color systemColor="systemYellowColor"/>
                                                         <color systemColor="secondaryLabelColor"/>
@@ -141,7 +141,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

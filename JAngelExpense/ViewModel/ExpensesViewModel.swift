@@ -75,5 +75,69 @@ class ExpensesViewModel{
         }
         return result
     }
+    
+    func getbysubcategory(idSubcategory : Int)->Result{
+        var result = Result()
+        let context = DB.init()
+        let query = "SELECT IdBalance, Name, Cantidad, IdTipo, IdSubcategoria, IdUsuario, Fecha FROM Balance WHERE ((IdSubcategoria = \(idSubcategory)))"
+        var statement : OpaquePointer? = nil
+        do{
+            if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
+                result.Objects = []
+                while sqlite3_step(statement) == SQLITE_ROW{
+                    
+                    var expenses = Expenses(idValance: 0, Name: "", cantidad: 0.0, IdTipoBalance: 0, IdSubCategorie: 0, IdUser: 0, fecha: "")
+                    expenses.idValance = Int(sqlite3_column_int(statement, 0))
+                    expenses.Name = String(cString: sqlite3_column_text(statement, 1))
+                    expenses.cantidad = Double(sqlite3_column_int(statement, 2))
+                    expenses.IdTipoBalance = Int(sqlite3_column_int(statement, 3))
+                    expenses.IdSubCategorie = Int(sqlite3_column_int(statement, 4))
+                    expenses.IdUser = Int(sqlite3_column_int(statement, 5))
+                    expenses.fecha = String(cString: sqlite3_column_text(statement, 6))
+                    
+                    result.Objects?.append(expenses)
+                }
+                result.Correct = true
+            }
+        }
+        catch let error {
+            result.Correct = false
+            result.ErrorMessage = error.localizedDescription
+            result.Ex = error
+        }
+        return result
+    }
+    func getbCurrentBalancebycategoria(idSubcategoria : Int, subcategoria : String)->Result{
+        var Expense = 0
+        var Income = 0
+        var idtipo = 0
+        var result = Result()
+        let context = DB.init()
+        let query = "SELECT  IdTipo, Cantidad FROM Balance where (IdSubcategoria = \(idSubcategoria))"
+        var statement : OpaquePointer? = nil
+        do{
+            if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
+                while sqlite3_step(statement) == SQLITE_ROW{
+                    idtipo = Int(sqlite3_column_int(statement, 0))
+                    if idtipo == 1{
+                        Expense = Expense + Int(sqlite3_column_int(statement, 1))
+                    }
+                    else{
+                        Income = Income + Int(sqlite3_column_int(statement, 1))
+                    }
+                    
+                }
+                result.Correct = true
+                result.Object = CurentBalance(IdSubcategoria: idSubcategoria, SubCategoria: subcategoria, Expense: Expense, Income: Income)
+                
+            }
+        }
+        catch let error{
+            result.Correct = false
+            result.ErrorMessage = error.localizedDescription
+            result.Ex = error
+        }
+    return result
+    }
 
 }

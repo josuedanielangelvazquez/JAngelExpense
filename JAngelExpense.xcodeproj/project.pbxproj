@@ -28,6 +28,12 @@
 		FB97488529C0FD5C004A33B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97488429C0FD5C004A33B0 /* HomeViewController.swift */; };
 		FB97488B29C0FE4D004A33B0 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97488929C0FE4D004A33B0 /* HomeTableViewCell.swift */; };
 		FB97488C29C0FE4D004A33B0 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB97488A29C0FE4D004A33B0 /* HomeTableViewCell.xib */; };
+		FB99194029CA4DE80066D124 /* movementsbycategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99193F29CA4DE70066D124 /* movementsbycategoryViewController.swift */; };
+		FBA8BDA929CA134700A6B376 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8BDA829CA134700A6B376 /* ChartViewController.swift */; };
+		FBA8BDAE29CA138700A6B376 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8BDAC29CA138700A6B376 /* ChartTableViewCell.swift */; };
+		FBA8BDAF29CA138700A6B376 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA8BDAD29CA138700A6B376 /* ChartTableViewCell.xib */; };
+		FBA8BDB129CA1C4900A6B376 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8BDB029CA1C4900A6B376 /* ChartViewModel.swift */; };
+		FBA8BDB329CA1DA100A6B376 /* Currentbalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA8BDB229CA1DA100A6B376 /* Currentbalance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,12 @@
 		FB97488429C0FD5C004A33B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FB97488929C0FE4D004A33B0 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FB97488A29C0FE4D004A33B0 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		FB99193F29CA4DE70066D124 /* movementsbycategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movementsbycategoryViewController.swift; sourceTree = "<group>"; };
+		FBA8BDA829CA134700A6B376 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		FBA8BDAC29CA138700A6B376 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		FBA8BDAD29CA138700A6B376 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
+		FBA8BDB029CA1C4900A6B376 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		FBA8BDB229CA1DA100A6B376 /* Currentbalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currentbalance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +96,6 @@
 				7314C2E58AE1487570923E64 /* Pods-JAngelExpense.debug.xcconfig */,
 				DD71DC2DC6F7BCABA8F801CA /* Pods-JAngelExpense.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -111,6 +122,7 @@
 				FB1CE62829C26E24006CED68 /* CategoriasViewController.swift */,
 				FB1CE63D29C2798B006CED68 /* SubcategoriasTableViewCell.swift */,
 				FB5EBA7229C5029D005A3C34 /* AddCategoryViewController.swift */,
+				FB99193F29CA4DE70066D124 /* movementsbycategoryViewController.swift */,
 			);
 			path = Categorias;
 			sourceTree = "<group>";
@@ -140,10 +152,7 @@
 				FB57C15E29BFFEA2002F2A2D /* Model */,
 				FB57C15D29BFFE9A002F2A2D /* ViewModel */,
 				FB57C15C29BFFE94002F2A2D /* View */,
-				FB57C14C29BFFE89002F2A2D /* ViewController.swift */,
-				FB57C14E29BFFE89002F2A2D /* Main.storyboard */,
 				FB57C15129BFFE8A002F2A2D /* Assets.xcassets */,
-				FB57C15329BFFE8A002F2A2D /* LaunchScreen.storyboard */,
 				FB57C15629BFFE8B002F2A2D /* Info.plist */,
 			);
 			path = JAngelExpense;
@@ -152,8 +161,11 @@
 		FB57C15C29BFFE94002F2A2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB57C15329BFFE8A002F2A2D /* LaunchScreen.storyboard */,
 				FB97488A29C0FE4D004A33B0 /* HomeTableViewCell.xib */,
 				FB1CE63E29C2798B006CED68 /* SubcategoriasTableViewCell.xib */,
+				FBA8BDAD29CA138700A6B376 /* ChartTableViewCell.xib */,
+				FB57C14E29BFFE89002F2A2D /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +177,7 @@
 				FB57C16029BFFF05002F2A2D /* DB.swift */,
 				FB2C99DC29C11371003373EA /* ExpensesViewModel.swift */,
 				FB1CE62E29C26F77006CED68 /* CategoriasViewModel.swift */,
+				FBA8BDB029CA1C4900A6B376 /* ChartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +188,7 @@
 				FB2C99DE29C11427003373EA /* Result.swift */,
 				FB2C99E029C1145C003373EA /* Expenses.swift */,
 				FB1CE62C29C26EC9006CED68 /* Categorias.swift */,
+				FBA8BDB229CA1DA100A6B376 /* Currentbalance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +196,8 @@
 		FB57C15F29BFFEA8002F2A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FBB16CCF29CA737200C26D54 /* Add */,
+				FBA8BDA729CA133700A6B376 /* Chart */,
 				FB1CE63229C2751F006CED68 /* Categorias */,
 				FB1CE63129C27513006CED68 /* perfil */,
 				FB1CE63029C274FC006CED68 /* Home */,
@@ -196,6 +212,23 @@
 				FB57C14A29BFFE89002F2A2D /* SceneDelegate.swift */,
 			);
 			path = AppDelgate;
+			sourceTree = "<group>";
+		};
+		FBA8BDA729CA133700A6B376 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				FBA8BDA829CA134700A6B376 /* ChartViewController.swift */,
+				FBA8BDAC29CA138700A6B376 /* ChartTableViewCell.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		FBB16CCF29CA737200C26D54 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				FB57C14C29BFFE89002F2A2D /* ViewController.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +293,7 @@
 			files = (
 				FB1CE64029C2798B006CED68 /* SubcategoriasTableViewCell.xib in Resources */,
 				FB57C15529BFFE8A002F2A2D /* LaunchScreen.storyboard in Resources */,
+				FBA8BDAF29CA138700A6B376 /* ChartTableViewCell.xib in Resources */,
 				FB57C15229BFFE8A002F2A2D /* Assets.xcassets in Resources */,
 				FB97488C29C0FE4D004A33B0 /* HomeTableViewCell.xib in Resources */,
 				FB57C15029BFFE89002F2A2D /* Main.storyboard in Resources */,
@@ -316,10 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1CE63F29C2798B006CED68 /* SubcategoriasTableViewCell.swift in Sources */,
+				FBA8BDAE29CA138700A6B376 /* ChartTableViewCell.swift in Sources */,
 				FB1CE62929C26E24006CED68 /* CategoriasViewController.swift in Sources */,
 				FB97488B29C0FE4D004A33B0 /* HomeTableViewCell.swift in Sources */,
+				FB99194029CA4DE80066D124 /* movementsbycategoryViewController.swift in Sources */,
 				FB1CE62D29C26EC9006CED68 /* Categorias.swift in Sources */,
 				FB1CE62F29C26F77006CED68 /* CategoriasViewModel.swift in Sources */,
+				FBA8BDA929CA134700A6B376 /* ChartViewController.swift in Sources */,
 				FB97488529C0FD5C004A33B0 /* HomeViewController.swift in Sources */,
 				FB57C14D29BFFE89002F2A2D /* ViewController.swift in Sources */,
 				FB57C16129BFFF05002F2A2D /* DB.swift in Sources */,
@@ -328,7 +365,9 @@
 				FB57C14929BFFE89002F2A2D /* AppDelegate.swift in Sources */,
 				FB5EBA7329C5029D005A3C34 /* AddCategoryViewController.swift in Sources */,
 				FB2C99E129C1145C003373EA /* Expenses.swift in Sources */,
+				FBA8BDB129CA1C4900A6B376 /* ChartViewModel.swift in Sources */,
 				FB2C99DF29C11427003373EA /* Result.swift in Sources */,
+				FBA8BDB329CA1DA100A6B376 /* Currentbalance.swift in Sources */,
 				FB57C14B29BFFE89002F2A2D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

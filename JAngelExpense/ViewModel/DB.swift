@@ -23,8 +23,35 @@ class DB{
         {
             print("Conexion Correcta")
             print( filePath.path())
-            return db
+            let createtableUserQuery = "CREATE TABLE IF NOT EXISTS Users (IdUser INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT)"
+            let createtableTipo = "CREATE TABLE IF NOT EXISTS Tipo (IdTipoBalance INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NameTipo TEXT)"
+            let createtableCategoriasQuery = "CREATE TABLE IF NOT EXISTS Categorias (IdCategoria INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NameCategoria TEXT)"
+            let createtablesubCategoriesQuery = "CREATE TABLE IF NOT EXISTS SubCategoria (IdSubcategoria INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NameSubcategoria TEXT, IdCategoria INTEGER, FOREIGN KEY (IdCategoria) references Categorias(IdCategoria))"
+            let createtablebalanceQuery = "CREATE TABLE IF NOT EXISTS Balance (IdBalance INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Name TEXT, Cantidad Double, IdTipo INTEGER, IdSubcategoria INTEGER, IdUsuario INTEGER, Fecha TEXT, FOREIGN KEY (IdTipo) REFERENCES Tipo(IdTipoBalance), FOREIGN KEY (IdSubcategoria) REFERENCES SubCategoria(IdSubcategoria))"
             
+            if sqlite3_exec(db, createtableUserQuery, nil, nil, nil) != SQLITE_OK{
+                print("error al crear la base de datos")
+            }
+            if sqlite3_exec(db, createtableTipo, nil, nil, nil) != SQLITE_OK{
+                print("error al crear la base de datos")
+            }
+            if sqlite3_exec(db, createtableCategoriasQuery, nil, nil, nil) != SQLITE_OK{
+                print("error al crear la base de datos")
+            }
+            
+            if sqlite3_exec(db, createtablesubCategoriesQuery, nil, nil, nil) != SQLITE_OK{
+                print("error al crear la base de datos")
+            }
+            if sqlite3_exec(db, createtablebalanceQuery, nil, nil, nil) != SQLITE_OK{
+                print("error al crear la base de datos")
+            }
+            
+            
+            else{
+                print("Everything is fine")
+            }
+            return db
+
         }
         else{
             print("Error")
@@ -32,5 +59,6 @@ class DB{
         }
       
     }
+    
     
 }

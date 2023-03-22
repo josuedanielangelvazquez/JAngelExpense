@@ -7,12 +7,13 @@
 
 import UIKit
 import iOSDropDown
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     let modelExpenses : Expenses? = nil
     let expensesviewmodel = ExpensesViewModel()
     let categoriasviewmodel = CategoriasViewModel()
     var db = DB()
     var idCategory = 0
+    var idsubcategory = 0
     @IBOutlet weak var Balance: UILabel!
     
     @IBOutlet weak var SelectTipedidselect: UISegmentedControl!
@@ -22,18 +23,33 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var Categoria: DropDown!
     
-    @IBOutlet weak var subcategorie: UITextField!
+    @IBOutlet weak var subcategorie: DropDown!
     @IBOutlet weak var Datedate: UIDatePicker!
     @IBOutlet weak var Tiposegment: UISegmentedControl!
     let defaults = UserDefaults.standard
     var idTipo = 1
     var currentbalance = 0.0
     override func viewDidLoad() {
+        Amounttext.delegate = self
         super.viewDidLoad()
         db.OpenConexion()
         Tiposegment.selectedSegmentIndex = 0
+        
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            if textField == Amounttext{
+            let allowingChars = "0123456789."
+            let numberOnly = NSCharacterSet.init(charactersIn: allowingChars).inverted
+            let validString = string.rangeOfCharacter(from: numberOnly) == nil
+                   return validString
+             }
+        return true
+        }
+    override func viewWillAppear(_ animated: Bool) {
         getbalance()
         loadCategory()
+        Categoria.didSelect{ selectedText, index, id in self.loadsubcategorias(idcategoria: id)
+        }
 
     }
     func getbalance(){
@@ -42,7 +58,27 @@ class ViewController: UIViewController {
         Balance.text = "$\(currentbalance)"
 
     }
-    
+    func loadsubcategorias(idcategoria : Int){
+        subcategorie.optionIds = []
+        subcategorie.optionArray = []
+        let result = categoriasviewmodel.getsubcategoriesbyIdCategory(idCategory: idcategoria)
+        if result.Correct == true{
+            for subcategories in result.Objects! as! [SubCategorias]{
+                subcategorie.optionIds?.append(subcategories.IdSubcategorias)
+                subcategorie.optionArray.append(subcategories.nameSubCategoria)
+                subcategorie.didSelect{[self](selectedText, index, id) in
+                    subcategorie.selectedRowColor = .systemIndigo
+                    subcategorie.arrowSize = 10
+                    subcategorie.arrowColor = .systemIndigo
+                    self.subcategorie.text = String(selectedText)
+                    self.idsubcategory = id
+                }
+            }
+        }
+        else{
+            
+        }
+    }
     func loadCategory(){
         Categoria.optionIds = []
         Categoria.optionArray = []
@@ -90,7 +126,7 @@ class ViewController: UIViewController {
                     self.present(alert, animated: true)
         }
         else{
-            result.Object  = Expenses(idValance: 0, Name: name, cantidad: amount, IdTipoBalance: idTipo, IdSubCategorie: IdSubcategoria! , IdUser: iduser, fecha: stringFromDate)
+            result.Object  = Expenses(idValance: 0, Name: name, cantidad: amount, IdTipoBalance: idTipo, IdSubCategorie: idsubcategory , IdUser: iduser, fecha: stringFromDate)
         result = expensesviewmodel.Addexpense(expense: result.Object as! Expenses)
             if idTipo == 1{
                 currentbalance -= amount
@@ -120,20 +156,27 @@ class ViewController: UIViewController {
 
     @IBAction func TipoSegment(_ sender: Any) {
         if Tiposegment.selectedSegmentIndex == 0{
+            viewWillAppear(true)
             idTipo = 1
         }
         else {
+            viewWillAppear(true)
             idTipo = 2
         }
     
     }
     
     @IBAction func AddAction(_ sender: Any) {
+      
         let amount = Double(Amounttext.text!)
         if amount! > currentbalance, idTipo == 1{
             let alert = UIAlertController(title: nil, message: "No tienes fondos suficientes", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default))
             self.present(alert, animated: true)
+            Amounttext.text = nil
+            IncomeorExpensetext.text = nil
+            Categoria.text = nil
+            subcategorie.text = nil
         }
         else{
             addExpenses()
