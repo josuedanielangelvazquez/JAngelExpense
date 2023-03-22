@@ -7,6 +7,7 @@
 
 import Foundation
 import SQLite3
+@available(iOS 16.0, *)
 class  CategoriasViewModel{
     func addSubCategoria(subcategoria: SubCategorias)-> Result{
         var result = Result()
@@ -183,8 +184,8 @@ class  CategoriasViewModel{
                    result.Ex = error
                    result.ErrorMessage = error.localizedDescription
                }
-        sqlite3_finalize(statement)
-                sqlite3_close(context.db)
+//        sqlite3_finalize(statement)
+//                sqlite3_close(context.db)
         return result
         
     }

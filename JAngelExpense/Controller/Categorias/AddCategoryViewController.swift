@@ -7,6 +7,7 @@
 
 import UIKit
 import iOSDropDown
+@available(iOS 16.0, *)
 class AddCategoryViewController: UIViewController {
     var categoriasviewmodel = CategoriasViewModel()
     @IBOutlet weak var segmentselect: UISegmentedControl!
@@ -23,19 +24,26 @@ class AddCategoryViewController: UIViewController {
     
     
     
-    let alert = UIAlertController(title: nil, message: "Se agrego correctament", preferredStyle: .alert)
-    let alertfalse = UIAlertController(title: nil, message: "Surgio un Error", preferredStyle: .alert)
+    let alert = UIAlertController(title: nil, message: "Se agrego correctamente", preferredStyle: .alert)
+    let alertfalse = UIAlertController(title: nil, message: "Este Elemento ya Existe", preferredStyle: .alert)
     let Ok = UIAlertAction(title: "Ok", style: .default)
     override func viewDidLoad() {
+        Categorytosubcategory.isSearchEnable = false
+        Categorytosubcategory.selectedRowColor = .systemIndigo
+        Categorytosubcategory.arrowSize = 10
+        Categorytosubcategory.arrowColor = .systemIndigo
         alert.addAction(Ok)
         alertfalse.addAction(Ok)
         super.viewDidLoad()
         subCathegory.isHidden = true
         Categorytosubcategory.isHidden = true
         segmentselect.selectedSegmentIndex = 0
-        loadCategory()
+        
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        loadCategory()
     }
     
     func loadCategory(){
@@ -44,6 +52,7 @@ class AddCategoryViewController: UIViewController {
         let result = categoriasviewmodel.getall()
         if result.Correct == true{
             for categories in result.Objects! as! [categorias]{
+                Categorytosubcategory.backgroundColor = .white
                 Categorytosubcategory.optionIds?.append(categories.IdCategorias)
                 Categorytosubcategory.optionArray.append(categories.NameCategorias)
             }
@@ -60,8 +69,11 @@ class AddCategoryViewController: UIViewController {
             
         }}
         func addCategories(){
-            let name = Category.text
-            let cat = categorias(IdCategorias: 0, NameCategorias: name!)
+            guard let name = Category.text, Category.text != nil, Category.text != ""else {
+                Category.backgroundColor = .red
+                return
+            }
+            let cat = categorias(IdCategorias: 0, NameCategorias: name)
             
             let result =  categoriasviewmodel.addCategoria(categoria: cat)
             if result.Correct == true {
@@ -75,9 +87,17 @@ class AddCategoryViewController: UIViewController {
             
         }
         func addSubcategories(){
-            let namesubcategory = subCathegory.text
+            viewWillAppear(true)
+            guard  let namesubcategory = subCathegory.text, subCathegory.text != nil, subCathegory.text != "" else{
+                subCathegory.backgroundColor = .red
+                return
+            }
+            guard let textcategory = Categorytosubcategory.text, Categorytosubcategory.text != nil, Categorytosubcategory.text != "" else{
+                Categorytosubcategory.backgroundColor = .red
+                return
+            }
             let idcategoria = Int(idCategory)
-            let subcat = SubCategorias(IdSubcategorias: 0, nameSubCategoria: namesubcategory!, idCategoria: idcategoria)
+            let subcat = SubCategorias(IdSubcategorias: 0, nameSubCategoria: namesubcategory, idCategoria: idcategoria)
             let result = categoriasviewmodel.addSubCategoria(subcategoria: subcat)
             if result.Correct == true{
                 self.present(alert, animated: true)
@@ -117,6 +137,7 @@ class AddCategoryViewController: UIViewController {
     
     @IBAction func AddAction(_ sender: Any) {
         if segmentselect.selectedSegmentIndex == 0{
+            
             addCategories()}
         else{
             addSubcategories()

@@ -7,6 +7,7 @@
 
 import UIKit
 import iOSDropDown
+@available(iOS 16.0, *)
 class ViewController: UIViewController, UITextFieldDelegate {
     let modelExpenses : Expenses? = nil
     let expensesviewmodel = ExpensesViewModel()
@@ -30,6 +31,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var idTipo = 1
     var currentbalance = 0.0
     override func viewDidLoad() {
+        subcategorie.selectedRowColor = .systemIndigo
+        subcategorie.arrowSize = 10
+        subcategorie.arrowColor = .systemIndigo
+        subcategorie.arrowSize
+        Categoria.selectedRowColor = .systemIndigo
+        Categoria.arrowSize = 10
+        Categoria.arrowColor = .systemIndigo
+        Categoria.isSearchEnable = false
+        subcategorie.isSearchEnable = false
+        self.Categoria
+        subcategorie.arrowSize
+
         Amounttext.delegate = self
         super.viewDidLoad()
         db.OpenConexion()

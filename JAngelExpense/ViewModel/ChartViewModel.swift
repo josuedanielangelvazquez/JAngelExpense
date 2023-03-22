@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@available(iOS 16.0, *)
 class ChartViewModel{
     var subcategorias = [SubCategorias]()
     var expenseviewmodel = ExpensesViewModel()

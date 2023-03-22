@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 16.0, *)
 class ChartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var chartviewmodel = ChartViewModel()

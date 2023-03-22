@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 16.0, *)
 class movementsbycategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     @IBOutlet weak var Subcategorylbl: UILabel!

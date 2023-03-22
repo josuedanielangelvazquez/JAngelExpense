@@ -8,6 +8,7 @@
 import Foundation
 import SQLite3
 
+@available(iOS 16.0, *)
 class ExpensesViewModel{
     
     func Addexpense(expense : Expenses) -> Result{
